@@ -153,9 +153,9 @@ public class GraphicalEditor {
         switch (length) {
             case 1:
                 if ("X".equals(cmd)) {
-                    System.out.println("Terminate the session");
+//                    System.out.println("Terminate the session");
                 } else if ("C".equals(cmd)) {
-                    System.out.println("Clear the table by setting all pixels white (O). The size remains unchanged");
+//                    System.out.println("Clear the table by setting all pixels white (O). The size remains unchanged");
                     for (int i = 0; i < image.length; i++) {
                         for (int j = 0; j < image[i].length; j++) {
                             image[i][j] = "O";
@@ -166,7 +166,7 @@ public class GraphicalEditor {
                 break;
             case 2:
                 String fileName = inputArr[1];
-                System.out.println("Write the file name in MSDOS 8.3 format followed by the contents: " + fileName);
+//                System.out.println("Write the file name in MSDOS 8.3 format followed by the contents: " + fileName);
                 StringBuilder sb = new StringBuilder();
                 sb.append(fileName);
                 sb.append("\n");
@@ -180,14 +180,14 @@ public class GraphicalEditor {
                     response = sb.toString();
                     System.out.println(response);
                 } else {
-                    System.out.println("No image pixels found");
+//                    System.out.println("No image pixels found");
                 }
 
                 break;
             case 3:
                 int m = Integer.parseInt(inputArr[1]);
                 int n = Integer.parseInt(inputArr[2]);
-                System.out.println("creating a new " + m + "x" + n + " image with all pixels colored white O");
+//                System.out.println("creating a new " + m + "x" + n + " image with all pixels colored white O");
                 image = new String[n][m];
                 for (int i = 0; i < image.length; i++) {
                     for (int j = 0; j < image[i].length; j++) {
@@ -200,13 +200,13 @@ public class GraphicalEditor {
                 int n1 = Integer.parseInt(inputArr[2]);
                 String color1 = inputArr[3];
                 if ("L".equals(cmd)) {
-                    System.out.println("Color pixel (" + m1 + "," + n1 + ") in color " + color1);
+//                    System.out.println("Color pixel (" + m1 + "," + n1 + ") in color " + color1);
                     image[n1-1][m1-1] = color1;
 
                 } else if ("F".equals(cmd)) {
-                    System.out.println("Fill the region R with color " + color1 + ", where R is defined as follows: Pixel (" + m1 + "," + n1 + ") "
-                            + "belongs to R. Any other pixel which is the same color as pixel(" + m1 + "," + n1 + ") and shares a common side "
-                            + "with any pixel in R also belongs to this region");
+//                    System.out.println("Fill the region R with color " + color1 + ", where R is defined as follows: Pixel (" + m1 + "," + n1 + ") "
+//                            + "belongs to R. Any other pixel which is the same color as pixel(" + m1 + "," + n1 + ") and shares a common side "
+//                            + "with any pixel in R also belongs to this region");
                     fill(n1-1, m1-1, color1);
                 }
                 break;
@@ -217,13 +217,13 @@ public class GraphicalEditor {
                 String color2 = inputArr[4];
                 if ("V".equals(cmd)) {
                     int y2 = Integer.parseInt(inputArr[2]);
-                    System.out.println("Draw a vertical segment of color (" + color2 + ") in column " + x + ", between the rows " + y2 + " and " + y + " inclusive");
+//                    System.out.println("Draw a vertical segment of color (" + color2 + ") in column " + x + ", between the rows " + y2 + " and " + y + " inclusive");
                     for (int j = y2; j <= y; j++) {
                         image[j-1][x-1] = color2;
                     }
                 } else if ("H".equals(cmd)) {
                     int x2 = Integer.parseInt(inputArr[2]);
-                    System.out.println("Draw a horizontal segment of color (" + color2 + ") in row " + y + ", between the columns " + x + " and " + x2 + " inclusive");
+//                    System.out.println("Draw a horizontal segment of color (" + color2 + ") in row " + y + ", between the columns " + x + " and " + x2 + " inclusive");
                     for (int j = x; j <= x2; j++) {
                         image[y-1][j-1] = color2;
                     }
@@ -235,8 +235,8 @@ public class GraphicalEditor {
                 int yy1 = Integer.parseInt(inputArr[2]);
                 int xx2 = Integer.parseInt(inputArr[3]);
                 int yy2 = Integer.parseInt(inputArr[4]);
-                System.out.println("Draw a filled rectangle of color " + color3 + ", where (" + xx1 + "," + yy1 + ") is the upper left"
-                        + "corner and (" + xx2 + "," + yy2 + ") is the lower right corner");
+//                System.out.println("Draw a filled rectangle of color " + color3 + ", where (" + xx1 + "," + yy1 + ") is the upper left"
+//                        + "corner and (" + xx2 + "," + yy2 + ") is the lower right corner");
                 for (int i = yy1; i < yy2; i++) {
                     for (int j = xx1; j < xx2; j++) {
                         image[i-1][j-1] = color3;
@@ -254,7 +254,7 @@ public class GraphicalEditor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("Input a command:\n");
+//            System.out.println("Input a command:\n");
             String input = sc.nextLine();
             if (validateCmd(input)) {
 
@@ -263,7 +263,7 @@ public class GraphicalEditor {
                     break;
                 }
             } else {
-                System.out.println("wrong input\n");
+//                System.out.println("wrong input\n");
             }
         }
 
